@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TerminalGraphState",
+  "type": "object",
+  "required": ["nodes", "connections"],
+  "properties": {
+    "chrome": {
+      "type": "object",
+      "properties": {
+        "minimapVisible": { "type": "boolean" },
+        "sidebarVisible": { "type": "boolean" }
+      }
+    },
+    "connections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["from", "to"],
+        "properties": {
+          "id": { "type": "string" },
+          "from": { "type": "string" },
+          "to": { "type": "string" },
+          "label": { "type": "string" }
+        }
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "type", "x", "y", "width", "height"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "type": { "type": "string", "enum": ["note", "card", "group", "link"] },
+          "x": { "type": "number" },
+          "y": { "type": "number" },
+          "width": { "type": "number" },
+          "height": { "type": "number" },
+          "zIndex": { "type": "number" },
+          "config": {
+            "type": "object",
+            "properties": {
+              "content": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}
